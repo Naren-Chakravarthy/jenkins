@@ -4,4 +4,4 @@
 - name: Create a jenkins job
   include_tasks: job.yml
   loop:
-    - {name: "sample1", repoName: "sample1"}
+    - {name: "sample", repoName: "sample"}
