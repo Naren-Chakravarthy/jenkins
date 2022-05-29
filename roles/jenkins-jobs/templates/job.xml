@@ -26,8 +26,8 @@
                     <apiUri>https://api.github.com</apiUri>
                     <credentialsId>Gitorg</credentialsId>
                     <repoOwner>Naren-Chakravarthy</repoOwner>
-                    <repository>{{repoName}}</repository>
-                    <repositoryUrl>https://github.com/Naren-Chakravarthy/{{repoName}}</repositoryUrl>
+                    <repository>{{item.repoName}}</repository>
+                    <repositoryUrl>https://github.com/Naren-Chakravarthy/{{item.repoName}}</repositoryUrl>
                     <traits>
                         <org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
                             <strategyId>1</strategyId>
