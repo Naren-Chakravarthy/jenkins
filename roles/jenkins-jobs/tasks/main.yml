@@ -1,19 +1,8 @@
-- name: Check if job exists
-  shell: "{{JENKINS_CLI_PREFIX}} get-job {{item.name}}"
-  ignore_errors: true
-  register: check_job
-
-- name: Generate unique string for job
-  shell: date | md5sum | awk '{print $1}'
-  register: uniq_string
-
-- name: upadate job template
-  template:
-    src: job.xml
-    dest: /tmp/job.xml
+- name: Check Jenkins Connections
+  ansible.builtin.shell: "{{JENKINS_CLI_PREFIX}} who-am-i"
 
 - name: Create a jenkins job
-  when: check_job.rc ==3
-  shell: "{{JENKINS_CLI_PREFIX}} create-job {{item.name}}"
-
-
+  include_tasks: job.yml
+  loop:
+    - {name: "sample1", repoName: "sample1"}
+  
