@@ -9,7 +9,7 @@
 
 - name: upadate job template
   template:
-    src: job.xml
+    src: mb-job.xml
     dest: /tmp/job.xml
 
 - name: Create a jenkins job
