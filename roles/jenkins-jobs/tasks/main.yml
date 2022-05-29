@@ -1,2 +1,2 @@
 - name: Check Jenkins Connections
-  ansible.builtin.shell:   "{{JENKINS_CLI_PREFIX}} who-am-i"
+  ansible.builtin.shell: "{{JENKINS_CLI_PREFIX}} who-am-i"
