@@ -14,10 +14,10 @@
 
 - name: Create a jenkins job
   when: check_job.rc == 3
-  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} create-job {{item.name}}"
+  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} create-job {{item.dirName}} {{item.name}}"
 
 - name: Update job
   when: check_job.rc == 0
-  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} update-job {{item.name}}"
+  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} update-job {{item.dirName}} {{item.name}}"
 
 
