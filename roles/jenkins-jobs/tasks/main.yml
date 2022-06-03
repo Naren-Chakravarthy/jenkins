@@ -1,5 +1,5 @@
 - name: Check Jenkins Connections
-  ansible.builtin.shell: "{{JENKINS_CLI_PREFIX}} who-am-i"
+  shell: "{{ JENKINS_CLI_PREFIX }} who-am-i"
 
 - name: Create a jenkins folders
   include_tasks: folders-job.yml
