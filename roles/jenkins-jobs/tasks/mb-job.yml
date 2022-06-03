@@ -13,7 +13,7 @@
     dest: /tmp/job.xml
 
 - name: Create a jenkins job
-  when: check_job.rc == 3
+  when: check_job.rc == 255
   shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} create-job {{item.dirName}} {{item.name}}"
 
 - name: Update job
