@@ -12,6 +12,6 @@
   when: check_dir.rc == 3
   shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} create-job {{item.name}}"
 
-- name: Update job
+- name: Update a dir
   when: check_dir.rc == 0
   shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} update-job {{item.name}}"

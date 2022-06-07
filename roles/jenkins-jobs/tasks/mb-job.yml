@@ -1,10 +1,10 @@
 - name: Check if job exists
-  shell: "{{JENKINS_CLI_PREFIX}} get-job {{item.name}}"
+  shell: "{{JENKINS_CLI_PREFIX}} get-job {{item.dirName}}{{item.name}}"
   ignore_errors: true
   register: check_job
 
 - name: Generate unique string for job
-  shell: date | md5sum | awk '{print $1}'
+  shell: date |md5sum | awk '{print $1}'
   register: uniq_string
 
 - name: upadate job template
@@ -13,11 +13,11 @@
     dest: /tmp/job.xml
 
 - name: Create a jenkins job
-  when: check_job.rc == 255
-  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} create-job {{item.dirName}} {{item.name}}"
+  when: check_job.rc == 3
+  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} create-job {{item.dirName}}{{item.name}}"
 
 - name: Update job
   when: check_job.rc == 0
-  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} update-job {{item.dirName}} {{item.name}}"
+  shell: "cat /tmp/job.xml | {{JENKINS_CLI_PREFIX}} update-job {{item.dirName}}{{item.name}}"
 
 
